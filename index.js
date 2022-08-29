@@ -46,7 +46,8 @@ app.get('/questions/:id', async function (req, res) {
 
 app.get('/description/:id', async function (req, res) {
   const { id } = req.params
-  let data = axios.get(`https://api.mercadolibre.com/items/${id}/description`)
+  let data = await axios.get(`https://api.mercadolibre.com/items/${id}/description`)
+  console.log(data)
   res.send(data.data)
 })
 
