@@ -15,6 +15,10 @@ app.listen(PORT, () => {
   console.log(`Running on http://localhost:${PORT}`)
 });
 
+app.get('/', function (req, res) {
+  res.send('Welcome to my MeLi practice challenge')
+})
+
 app.get('/items', async function (req, res) {
   const { name } = req.query
   const data = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${name}`)
