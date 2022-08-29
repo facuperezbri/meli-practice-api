@@ -30,3 +30,28 @@ app.get('/items/:id', async function (req, res) {
   let data = await axios.get(`https://api.mercadolibre.com/items/${id}`)
   res.send(data.data)
 })
+
+app.get('/reviews/:id', async function (req, res) {
+  const { id } = req.params
+  let data = await axios.get(`https://api.mercadolibre.com/reviews/item/${id}`)
+  res.send(data.data)
+})
+
+app.get('/questions/:id', async function (req, res) {
+  const { id } = req.params
+  let data = await axios.get(`https://api.mercadolibre.com/questions/search?item=${id}`)
+  res.send(data.data)
+
+})
+
+app.get('/description/:id', async function (req, res) {
+  const { id } = req.params
+  let data = axios.get(`https://api.mercadolibre.com/items/${id}/description`)
+  res.send(data.data)
+})
+
+app.get('/users/:id', async function (req, res) {
+  const { id } = req.params
+  let data = await axios.get(`https://api.mercadolibre.com/users/${id}`)
+  res.send(data.data)
+})
